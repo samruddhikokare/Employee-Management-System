@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Employees</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h2>All Employees Page</h2>
+    <p>This page will display the list of all employees.</p>
+</body>
+<div class="container">
+    <h1>Employee Management System</h1>
+    <hr>
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Last</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Role</th>
+      <th scope="col">Department</th>
+      <th scope="col">Hire_Date</th>
+    </tr>
+  </thead>
+        {% for emp in emps %}
+  <tbody>
+    <tr>
+      <th scope="row">{{emp.id}}</th>
+      <td>{{emp.first_name}}</td>
+      <td>{{emp.last_name}}</td>
+      <td>{{emp.salary}}</td>
+      <td>{{emp.phone}}</td>
+      <td>{{emp.role.name}}</td>
+      <td>{{emp.dept.name}}</td>
+      <td>{{emp.hire_date}}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+    </div>
+
+</html>

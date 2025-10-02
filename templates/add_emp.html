@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h2>Add Employee Page</h2>
+    <p>This page will contain a form to add a new employee.</p>
+    <form action="/add_emp" method="post">
+       {% csrf_token %}
+    <label for="first_name">First Name</label><br>
+    <input type="text"  id="first_name" name="first_name"value="{{ first_name }}"><br>
+    <label for="last_name">Last Name</label><br>
+    <input type="text"  id="Last_name" name="last_name" value="{{ last_name }}"><br>
+    <label>Department</label>
+  <select name="Department" required>
+      {% for dept in departments %}
+          <option value="{{ dept.id }}">{{ dept.name }}</option>
+      {% endfor %}
+  </select><br>
+
+  <label>Role</label>
+  <select name="Role" required>
+      {% for role in roles %}
+          <option value="{{ role.id }}">{{ role.name }}</option>
+      {% endfor %}
+  </select><br>
+    <input type="number"  id="Salary"name="Salary" value="{{ Salary }}"><br>
+    <label for="Hire_Date">Hire date</label><br>
+    <input type="number"  id="Hire_date" name="Hire_Date"value= "{{ Hire_date}}"><br>
+    <label for="Phone">Phone Number</label><br>
+    <input type="number"  id="Phone "name="Phone" value= "{{ Phone }}"><br>
+  <hr>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
